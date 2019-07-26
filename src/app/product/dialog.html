@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+    <p>Product Details</p>
+
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="Name" value="">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="Description" value="" type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="Price" value="" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="ImageUrl" value="">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="Select one or more categories">
+            <mat-option value="option">Shoes</mat-option>
+            <mat-option value="option">Men's</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-slide-toggle>Active</mat-slide-toggle>
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Confirm</button>
+    <button mat-button (click)="onNoClick()" cdkFocusInitial>Cancel</button>
+</div>

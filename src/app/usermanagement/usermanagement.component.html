@@ -1,0 +1,39 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <!-- column -->
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <div fxLayout="row" fxLayoutWrap="wrap">
+        <div fxFlex="20" class="m-l-15 m-t-15">
+
+          <span class="p-10"><i class="fa fa-user-plus fa-4x" (click)="openDialog('Add',{})"></i></span>
+        </div>
+
+        <div fxFlex="45" class='text-center'>
+          <h2>User Management</h2>
+        </div>
+        <div fxFlex="30" class="m-t-10">
+
+          <form class="example-form">
+            <mat-form-field>
+              <mat-label>Search Users</mat-label>
+              <input matInput placeholder="" value="">
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+          </form>
+        </div>
+
+        <div fxFlex="33">
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item role="listitem">User 1</mat-list-item>
+              <mat-list-item role="listitem">User 2</mat-list-item>
+              <mat-list-item role="listitem">User 3</mat-list-item>
+            </mat-list>
+
+          </mat-card-content>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
