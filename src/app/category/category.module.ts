@@ -5,10 +5,10 @@ import { DemoMaterialModule } from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CategoryComponent } from './category.component';
 import { CategoryRoutes } from './category.routing';
-import { DialogOverviewExampleDialog} from './category.component';
 import { CategoryService} from './category.service';
-import { ReactiveFormsModule } from '@angular/forms'; 
-import {DeleteConfirm} from './category.component'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
+import { CategoryConfirm } from './category.dialog/category.deleteconfirm.component';
+import { CategoryDialog } from './category.dialog/category.addupdatedialog.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,11 +16,12 @@ import {DeleteConfirm} from './category.component'
     FlexLayoutModule,
     ReactiveFormsModule,
     RouterModule.forChild(CategoryRoutes),
+    FormsModule
   ],
   entryComponents: [
-    DialogOverviewExampleDialog, DeleteConfirm
+    CategoryDialog, CategoryConfirm
   ],
   providers: [CategoryService],
-  declarations: [CategoryComponent, DialogOverviewExampleDialog, DeleteConfirm]
+  declarations: [CategoryComponent, CategoryDialog, CategoryConfirm]
 })
 export class CategoryModule {}

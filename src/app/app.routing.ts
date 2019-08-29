@@ -30,6 +30,10 @@ export const AppRoutes: Routes = [
         loadChildren: './category/category.module#CategoryModule'
       },
       {
+        path: 'supplier',
+        loadChildren: './supplier/supplier.module#SupplierModule'
+      },
+      {
         path: 'usermanagement',
         loadChildren: './usermanagement/usermanagement.module#UserManagementModule'
       },

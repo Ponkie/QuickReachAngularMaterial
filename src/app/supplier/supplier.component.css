@@ -1,0 +1,27 @@
+table
+{
+    width: 100%;
+    text-align:center;
+}
+
+th
+{
+    text-align:center;
+}
+
+#searchproduct
+{
+    float: right;
+    margin: 1.5%;
+}
+
+#addproduct
+{
+    margin: 1%;
+}
+
+img
+{
+    max-width: 100px;
+    max-height: 100px;    
+}

@@ -2,31 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ICategory } from '../models/ICategory';
+import { ISupplier } from '../models/ISupplier';
 
 @Injectable()
-export class CategoryService {
+export class SupplierService {
     // private proxyUrl:string="https://cors-anywhere-khen.herokuapp.com/";
-    private url: string = "https://localhost:5001/api/categories/";
+    private url: string = "https://localhost:5001/api/suppliers/";
 
     constructor(private http: HttpClient) { }
 
-    getCategory(): Observable<any[]> {
+    getSupplier(): Observable<any[]> {
         return this.http.get<any[]>(this.url).pipe(
             catchError(this.errorHandler));
     }
 
-    addCategory(category: ICategory): Observable<any> {
-        return this.http.post<any[]>(this.url, category)
+    addSupplier(supplier: ISupplier): Observable<ISupplier> {
+        return this.http.post<ISupplier>(this.url, supplier)
             .pipe(catchError(this.errorHandler));
     }
 
-    updateCategory(category: ICategory): Observable<any> {
-        return this.http.put<any[]>(this.url+category.id, category)
+    updateSupplier(supplier: ISupplier): Observable<ISupplier>{
+        return this.http.put<ISupplier>(this.url+supplier.id, supplier)
             .pipe(catchError(this.errorHandler));
     }
 
-    deleteCategory(id: number): Observable<any> {
+    deleteSupplier(id: number): Observable<any> {
         return this.http.delete<any[]>(this.url+id)
             .pipe(catchError(this.errorHandler));
     }

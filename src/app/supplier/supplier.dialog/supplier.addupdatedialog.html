@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{action}} Supplier</h1>
+<form [formGroup]="supplierForm">
+
+    <div mat-dialog-content>
+        <p>Supplier Details</p>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="" formControlName="description" type="text">
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="submitForm(action)">{{action}}</button>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+    </div>
+
+</form>

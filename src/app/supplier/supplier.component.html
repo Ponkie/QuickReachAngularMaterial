@@ -5,16 +5,15 @@
         <div fxLayout="row" fxLayoutWrap="wrap">
           <div fxFlex="15" class="m-l-15 m-t-15">
               
-            <span class="p-10"><i class="fa fa-plus-circle fa-3x" (click)="openDialog('Add',{})" matTooltip="Add Category"></i></span>
+            <span class="p-10"><i class="fa fa-plus-circle fa-3x" (click)="openDialog('Add',{})" matTooltip="Add Supplier"></i></span>
           </div>
 
           <div fxFlex="65" class='text-center'>
-            <h2>Category List</h2>
+            <h2>Supplier List</h2>
           </div>
           <div fxFlex="15" class="m-t-10">
-            
               <mat-form-field>
-                <mat-label>Search Category</mat-label>
+                <mat-label>Search Supplier</mat-label>
                 <input [(ngModel)]="searchString" matInput placeholder="" value="">
                 <mat-icon matSuffix>search</mat-icon>
               </mat-form-field>
@@ -25,35 +24,40 @@
           <table mat-table [dataSource]="display()" class="mat-elevation-z8">
             <ng-container matColumnDef="id">
               <th mat-header-cell *matHeaderCellDef class="text-center"> Id </th>
-              <td mat-cell *matCellDef="let category"> {{category.id}} </td>
+              <td mat-cell *matCellDef="let supplier"> {{supplier.id}} </td>
             </ng-container>
 
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef class="text-center"> Name </th>
-              <td mat-cell *matCellDef="let category"> {{category.name}} </td>
+              <td mat-cell *matCellDef="let supplier"> {{supplier.name}} </td>
             </ng-container>
 
             <ng-container matColumnDef="description">
               <th mat-header-cell *matHeaderCellDef class="text-center"> Description </th>
-              <td mat-cell *matCellDef="let category"> {{category.description}} </td>
+              <td mat-cell *matCellDef="let supplier"> {{supplier.description}} </td>
             </ng-container>
 
             <ng-container matColumnDef="manage">
               <th mat-header-cell *matHeaderCellDef class="text-center"> Manage </th>
-              <td mat-cell *matCellDef="let category">
-                <button mat-raised-button color="primary" (click)="openDialog('Update',category)" matTooltip="Update {{category.name}}'s Details"> Update </button>
-                <button mat-raised-button color="warn" (click)="openConfirm(category.id)" matTooltip="Delete {{category.name}}"> Delete </button> </td>
+              <td mat-cell *matCellDef="let supplier">
+                <button mat-raised-button color="primary" (click)="openDialog('Update', supplier)" matTooltip="Update {{supplier.name}}'s details"> Update </button>
+                <button mat-raised-button color="warn" (click)="openConfirm(supplier.id)" matTooltip="Delete {{supplier.name}}" > Delete </button> </td>
             </ng-container>
 
             <ng-container matColumnDef="isActive">
                 <th mat-header-cell *matHeaderCellDef class="text-center"> Active </th>
-                <td mat-cell *matCellDef="let category">
-                    <mat-slide-toggle [checked]="category.isActive" (change)="changeActivity($event, category)" matTooltip="Change {{category.name}}'s activity status"></mat-slide-toggle>
+                <td mat-cell *matCellDef="let supplier">
+                    <mat-slide-toggle [checked]="supplier.isActive" (change)="changeActivity($event, supplier)" matTooltip="Change {{supplier.name}}'s activity status"></mat-slide-toggle>
               </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+          <mat-paginator [length]="suppliersLength"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="[5, 10, 20, 50]"
+          (page)="pageTurn($event)">
+          </mat-paginator>
         </mat-card-content>
       </div>
   </div>

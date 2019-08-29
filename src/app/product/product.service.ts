@@ -2,21 +2,21 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable,throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import { IProduct } from '../models/IProduct';
 
 @Injectable()
 export class ProductService{
-    // private proxyUrl:string="https://cors-anywhere-khen.herokuapp.com/";
     private url:string="https://localhost:5001/api/products/";
 
     constructor(private http: HttpClient){}
 
-    getProduct(): Observable<any[]>
+    getProducts(): Observable<any[]>
     {
         return this.http.get<any[]>(this.url).pipe(
             catchError(this.errorHandler));
     }
 
-    addProduct(product: any): Observable<any[]>
+    addProduct(product: IProduct): Observable<any[]>
     {
         return this.http.post<any[]>(this.url,product).pipe(
             catchError(this.errorHandler));

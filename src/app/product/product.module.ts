@@ -5,8 +5,8 @@ import { DemoMaterialModule } from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ProductComponent } from './product.component';
 import { ProductRoutes } from './product.routing';
-import {DialogOverviewExampleDialog} from './product.component';
 import { ProductService} from './product.service';
+import { ProductDialog } from './product.dialog/product.dialog';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,9 +15,9 @@ import { ProductService} from './product.service';
     RouterModule.forChild(ProductRoutes),
   ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    ProductDialog
   ],
   providers: [ProductService],
-  declarations: [ProductComponent, DialogOverviewExampleDialog]
+  declarations: [ProductComponent, ProductDialog]
 })
 export class ProductModule {}

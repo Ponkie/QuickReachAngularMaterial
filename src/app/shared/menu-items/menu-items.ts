@@ -44,6 +44,12 @@ const MENUITEMS = [
     icon: 'description'
   },
   {
+    state: 'supplier',
+    name: 'Suppliers',
+    type: 'link',
+    icon: 'description'
+  },
+  {
     state: 'usermanagement',
     name: 'User Management',
     type: 'link',
