@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   })
     
 export class SupplierDialog {
-
     action:string
     constructor(
       public dialogRef: MatDialogRef<SupplierDialog>,
@@ -39,12 +38,7 @@ export class SupplierDialog {
     id: number;
     supplierForm: FormGroup;
     supplierData: any = {};
-    isVisible: boolean = false;
-  
-    displaySupplier() {
-      this.supplierService.getSupplier().subscribe(supplier => this.suppliers = supplier, error => this.errorMsg = error);
-    }
-  
+    
     initSupplierForm(newSupplier: boolean) {
       if (newSupplier) {
         this.supplierForm = this.fb.group(

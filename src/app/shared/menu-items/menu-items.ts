@@ -41,7 +41,7 @@ const MENUITEMS = [
     state: 'category',
     name: 'Categories',
     type: 'link',
-    icon: 'description'
+    icon: 'description',
   },
   {
     state: 'supplier',
@@ -52,8 +52,12 @@ const MENUITEMS = [
   {
     state: 'usermanagement',
     name: 'User Management',
-    type: 'link',
-    icon: 'account_circle'
+    type: 'sub',
+    icon: 'account_circle',
+    children: [
+      { state: 'admins', name: 'Admins' },
+      { state: 'users', name: 'Users' },
+    ]
   },
   // {
   //   state: 'material',

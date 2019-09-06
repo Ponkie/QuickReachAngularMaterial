@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource, MatPaginator, PageEvent, MatSlideToggleChange } from '@angular/material';
 import { CategoryService } from './category.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -52,18 +52,17 @@ export class CategoryComponent {
 
   }
 
-  openDialog(action, category:ICategory) 
-  {
+  openDialog(action, category: ICategory) {
     category.action = action
-    const dialogRef = this.dialog.open(CategoryDialog, 
-    {
-      width: '500px',
-      data: category,
-    });
+    const dialogRef = this.dialog.open(CategoryDialog,
+      {
+        width: '500px',
+        data: category,
+      });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result != undefined) {
-        this.openSnackBar(`Category ${result} successfully!` , "Okay");
+      if (result != undefined) {
+        this.openSnackBar(`Category ${result} successfully!`, "Okay");
         this.displayCategory();
       }
     });
@@ -89,26 +88,26 @@ export class CategoryComponent {
       duration: 5000,
     });
   }
-  
+
   display() {
-    return this.categories.filter(c => c.name.toLowerCase().includes(this.searchString.toLowerCase()) || c.description.toLowerCase().includes(this.searchString.toLowerCase()));
+    if (this.searchString == "") {
+      return this.categories;
+    } else {
+      return this.categories.filter(c => c.name.toLowerCase().includes(this.searchString.toLowerCase()) || c.description.toLowerCase().includes(this.searchString.toLowerCase()));
+    }
   }
 
-
-  //return this.products.filter(product => product.productName.toLowerCase().includes(this.searchString)
-    //    || product.price.toString().includes(this.searchString)));
-  changeActivity(ob: MatSlideToggleChange, category: ICategory)
-  {
+  changeActivity(ob: MatSlideToggleChange, category: ICategory) {
     category.isActive = ob.checked;
-    if(ob.checked){
+    if (ob.checked) {
       this.displayActivity = "Active"
     } else {
       this.displayActivity = "Inactive"
     }
     this.categoryService.updateCategory(category)
-    .subscribe(data => {
-      this.openSnackBar(`Changed ${category.name} to ${this.displayActivity} status`, "Okay")
-    }, error => { this.errorMsg = error });
+      .subscribe(data => {
+        this.openSnackBar(`Changed ${category.name} to ${this.displayActivity} status`, "Okay")
+      }, error => { this.errorMsg = error });
   }
 }
 

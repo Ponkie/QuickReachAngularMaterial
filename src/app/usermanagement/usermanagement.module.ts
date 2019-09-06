@@ -5,18 +5,22 @@ import { DemoMaterialModule } from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserManagementComponent } from './usermanagement.component';
 import { UserManagementRoutes } from './usermanagement.routing';
-import {DialogOverviewExampleDialog} from './usermanagement.component';
+import { UserManagementDialog } from './usermanagement.dialog/usermanagement.dialog.component';
+import { UserService } from './usermanagement.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     DemoMaterialModule,
     FlexLayoutModule,
     RouterModule.forChild(UserManagementRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    UserManagementDialog
   ],
-  providers: [],
-  declarations: [UserManagementComponent, DialogOverviewExampleDialog]
+  providers: [UserService],
+  declarations: [UserManagementComponent, UserManagementDialog]
 })
 export class UserManagementModule {}

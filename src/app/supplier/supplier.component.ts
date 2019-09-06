@@ -28,8 +28,6 @@ export class SupplierComponent {
   displayActivity: string
   pageSize: number;
   pageEvent: PageEvent = new PageEvent();
-  suppliersLength: number = 7;
-
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -37,21 +35,10 @@ export class SupplierComponent {
 
   ngOnInit() {
     this.displaySupplier();
-    this.dataSource.paginator = this.paginator;
   }
 
   displaySupplier() {
     this.supplierService.getSupplier().subscribe(supplier => this.suppliers = supplier, error => this.errorMsg = error);
-  }
-
-  setSupplierFormValues(newSupplier: boolean) {
-    const formValues = Object.assign({}, this.supplierForm.value);
-    if (newSupplier) {
-      this.supplierData = {};
-      this.supplierData.name = formValues['name'];
-      this.supplierData.description = formValues['description'];
-    }
-
   }
 
   openDialog(action, supplier:ISupplier) 
@@ -93,7 +80,12 @@ export class SupplierComponent {
   }
   
   display() {
-    return this.suppliers.filter(s => s.name.toLowerCase().includes(this.searchString.toLowerCase()) || s.description.toLowerCase().includes(this.searchString.toLowerCase()));
+    if (this.searchString=="") {
+      return this.suppliers
+    }
+    else {
+      return this.suppliers.filter(s => s.name.toLowerCase().includes(this.searchString.toLowerCase()) || s.description.toLowerCase().includes(this.searchString.toLowerCase()));
+    }
   }
 
   pageTurn(event: PageEvent)

@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{action}} Product</h1>
+<form [formGroup]="productForm">
+
+    <div mat-dialog-content>
+        <p>Product Details</p>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="" formControlName="description" type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="" formControlName="price" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>ImageUrl</mat-label>
+            <input matInput placeholder="" formControlName="imageUrl" type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-select [formControlName]="'categories'" placeholder="Select one or more categories" multiple>
+                <mat-option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="submitForm(action)">{{action}}</button>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+    </div>
+
+</form>

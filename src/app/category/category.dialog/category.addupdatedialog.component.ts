@@ -41,10 +41,7 @@ export class CategoryDialog {
     categoryData: any = {};
     isVisible: boolean = false;
   
-    displayCategory() {
-      this.categoryService.getCategory().subscribe(category => this.categorys = category, error => this.errorMsg = error);
-    }
-  
+
     initCategoryForm(newCategory: boolean) {
       if (newCategory) {
         this.categoryForm = this.fb.group(
@@ -90,8 +87,6 @@ export class CategoryDialog {
             this.updateCategory();
         }
     }
-  
-
   
     setCategoryFormValues(newCategory: boolean) {
 

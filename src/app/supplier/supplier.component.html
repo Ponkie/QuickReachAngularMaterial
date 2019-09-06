@@ -40,24 +40,19 @@
             <ng-container matColumnDef="manage">
               <th mat-header-cell *matHeaderCellDef class="text-center"> Manage </th>
               <td mat-cell *matCellDef="let supplier">
-                <button mat-raised-button color="primary" (click)="openDialog('Update', supplier)" matTooltip="Update {{supplier.name}}'s details"> Update </button>
+                <button mat-raised-button color="primary" (click)="openDialog('Update', supplier)" matTooltip="Update {{supplier.name}} details"> Update </button>
                 <button mat-raised-button color="warn" (click)="openConfirm(supplier.id)" matTooltip="Delete {{supplier.name}}" > Delete </button> </td>
             </ng-container>
 
             <ng-container matColumnDef="isActive">
                 <th mat-header-cell *matHeaderCellDef class="text-center"> Active </th>
                 <td mat-cell *matCellDef="let supplier">
-                    <mat-slide-toggle [checked]="supplier.isActive" (change)="changeActivity($event, supplier)" matTooltip="Change {{supplier.name}}'s activity status"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="supplier.isActive" (change)="changeActivity($event, supplier)" matTooltip="Change {{supplier.name}} activity status"></mat-slide-toggle>
               </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-          <mat-paginator [length]="suppliersLength"
-          [pageSize]="pageSize"
-          [pageSizeOptions]="[5, 10, 20, 50]"
-          (page)="pageTurn($event)">
-          </mat-paginator>
         </mat-card-content>
       </div>
   </div>

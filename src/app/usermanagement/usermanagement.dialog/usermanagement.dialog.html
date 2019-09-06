@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add User</h1>
+<div mat-dialog-content>
+    <p>{{action}} User</p>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="" formControlName="name" type="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>E-mail Address</mat-label>
+        <input matInput placeholder="" formControlName="name" type="email">
+    </mat-form-field>
+
+    
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="submitForm(action)">Confirm</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+</div>

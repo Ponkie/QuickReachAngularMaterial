@@ -4,7 +4,11 @@ import { UserManagementComponent } from './usermanagement.component';
 
 export const UserManagementRoutes: Routes = [
   {
-    path: '',
+    path: 'admins',
+    component: UserManagementComponent
+  },
+  {
+    path: 'users',
     component: UserManagementComponent
   }
 ];

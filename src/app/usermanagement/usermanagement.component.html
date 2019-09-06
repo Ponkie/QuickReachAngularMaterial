@@ -12,27 +12,37 @@
           <h2>User Management</h2>
         </div>
         <div fxFlex="15" class="m-t-10">
-
-          <form class="example-form">
-            <mat-form-field>
-              <mat-label>Search Users</mat-label>
-              <input matInput placeholder="" value="">
-              <mat-icon matSuffix>search</mat-icon>
-            </mat-form-field>
-
-          </form>
+          <mat-form-field>
+            <mat-label>Search Users</mat-label>
+            <input matInput placeholder="" value="" [(ngModel)]="searchString">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
         </div>
 
-        <div fxFlex="33">
+        <div fxFlex="25" class="mat-elevation-z8" id="adminMenu">
           <mat-card-content>
-            <mat-list>
-              <mat-list-item role="listitem">User 1</mat-list-item>
-              <mat-list-item role="listitem">User 2</mat-list-item>
-              <mat-list-item role="listitem">User 3</mat-list-item>
+            <mat-list *ngFor="let user of users">
+              <mat-list-item role="listitem">{{user.username}}</mat-list-item>
             </mat-list>
-
           </mat-card-content>
         </div>
+
+        <div fxFlex="75" class="mat-elevation-z8" id="adminDetails">
+            <mat-form-field>
+                <input matInput placeholder="Username" value="">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Password" value="" type="password">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="E-mail Address" value="">
+            </mat-form-field>
+
+            <mat-slide-toggle matTooltip="Change activity status"></mat-slide-toggle>
+        </div>
+
       </div>
     </mat-card>
   </div>
